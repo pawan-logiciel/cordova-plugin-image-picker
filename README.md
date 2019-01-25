@@ -3,6 +3,7 @@ cordova-imagePicker
 
 Cordova Plugin For Multiple Image Selection - implemented for iOS and Android 4.0 and above.
 
+Modified for JobProgress app
 We have modified this plugin code to fix below error, that we were facing during build of app, without compact plugin
 
 error: Entry is not public in LinkedHashMap; cannot be accessed from outside package protected boolean removeEldestEntry(LinkedHashMap.Entry<Integer, Bitmap> eldest)

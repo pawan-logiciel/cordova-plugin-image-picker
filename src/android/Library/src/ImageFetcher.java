@@ -197,7 +197,17 @@ public class ImageFetcher {
 	                } else {
 	                    if (rotate != 0) {
 	                        Matrix matrix = new Matrix();
-	                        matrix.setRotate(rotate);
+				/**
+				* Fixed by Tajinder on 18 Feb, 2021
+				* https://github.com/Telerik-Verified-Plugins/ImagePicker/issues/227
+				* To fix image picker rotation issue on Android 10+, we don't want to 
+				* execute following line. If we remove this line completely, 
+				* this will cause then similar issue on Android 8 and Android 9
+				*/
+				if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+					matrix.setRotate(rotate);
+				}
+
 	                        thumb = Bitmap.createBitmap(thumb, 0, 0, thumb.getWidth(), thumb.getHeight(), matrix, true);
 	                    }
 	                    return thumb;
